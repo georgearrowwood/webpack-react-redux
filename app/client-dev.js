@@ -1,17 +1,23 @@
-import { AppContainer } from 'react-hot-loader';
+import {AppContainer} from 'react-hot-loader';
 import React from 'react'
 import {render} from 'react-dom'
-import Router from 'react-router/lib/Router';
-import match from 'react-router/lib/match';
-import browserHistory from 'react-router/lib/browserHistory';
+import {Router, match, browserHistory} from 'react-router';
+import {Provider} from 'react-redux';
+import {createStore} from 'redux';
+
+import reducer from './reducers';
 
 const routes = require ('./routes').default;
+
+const store = createStore(reducer);
 
 var container = document.getElementById('app')
 
 render(
   <AppContainer>
-    <Router history={browserHistory} routes={routes} />
+    <Provider store={store}>
+      <Router history={browserHistory} routes={routes} />
+    </Provider>  
   </AppContainer>, container)
 
 if (module.hot) {
