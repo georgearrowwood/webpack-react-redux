@@ -1,34 +1,27 @@
-import express from 'express';
-let router = express.Router();
+import express from 'express'
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
 
-import React from 'react';
-import { renderToString } from 'react-dom/server';
-import { match, RouterContext } from 'react-router';
+import config from '../config'
+import App from '../../../app/app'
 
-import config from '../config';
-import Routes from '../../../app/routes';
+let router = express.Router()
 
 router.get('*', (req, res) => {
+  const context = {}
+  const pageBody = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url} context={context}>
+      <App />
+    </StaticRouter>
+  )
 
-  match({ routes: Routes, location: req.url }, (err, redirect, props) => {
-
-    if (err) {
-      res.status(500).send(err.message)
-    } else if (redirect) {
-      res.redirect(redirect.pathname + redirect.search)
-    } else if (props) {
-      const appHtml = renderToString(<RouterContext {...props}/>)
-      // res.send(renderPage(appHtml))
-      res.render('html.ejs', {
-        title: config.title,
-        app: appHtml,
-        scriptUrl: config.scriptUrl,
-        styleUrl: config.styleUrl
-      });
-    } else {
-      res.status(404).send('Not Found')
-    }
+  res.render('index', {
+    pageBody: pageBody,
+    title: config.title,
+    scriptUrl: config.scriptUrl,
+    styleUrl: config.styleUrl
   })
 })
 
-module.exports = router;
+module.exports = router

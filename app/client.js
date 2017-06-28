@@ -1,10 +1,14 @@
-import React from 'react'
-import {render} from 'react-dom'
-import {Router, match, browserHistory} from 'react-router';
+import React, { Component } from 'react'
+import { BrowserRouter } from 'react-router-dom'
 
-const routes = require ('./routes').default;
+import App from './app'
 
-render(
-  <Router history={browserHistory} routes={routes} />,
-  document.getElementById('app')
-);
+export default class Index extends Component {
+  render () {
+    return (
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    )
+  }
+}

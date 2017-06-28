@@ -10,7 +10,7 @@ const config = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?' + host,
     'webpack/hot/only-dev-server',
-    "./client-dev.js",
+    "./client-dev",
   ],
   output: {
     filename: "bundle.js",
@@ -22,24 +22,27 @@ const config = {
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       {
         test: /\.css$/,
-        loader: "style!css"
+        loader: 'style-loader'
+      }, {
+        test: /\.css$/,
+        loader: 'css-loader'
       }
     ],
   },
   devServer: {
     hot: true,
-    path: path.join(__dirname, '../../dist'),
+    contentBase: path.join(__dirname, '../../dist'),
     filename: 'bundle.js',
-    publicPath: host + "/dist/",
+    publicPath: host + "/dist/"
   },
   plugins: [
-    new ExtractTextPlugin("style.css"),
     new webpack.DefinePlugin({
       'process.env': {
         'NODE_ENV': JSON.stringify('development'),
         'config': JSON.stringify('development'),
       }
     }),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
