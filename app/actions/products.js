@@ -1,26 +1,12 @@
-/*
- * action types
- */
-
-export const ADD_TODO = 'ADD_TODO'
-
-/*
- * action creators
- */
-
-export function addTodo(text) {
-  return { type: ADD_TODO, text }
-}
-
-/*
 import dispatcher from '../utils/dispatcher'
 import productConstants from '../constants/products'
 import pageConstants from '../constants/page'
 import productsApi from '../api/products'
 
-
 export default {
-
+  /**
+   * @param  {string} text
+   */
   create: function (product) {
     dispatcher.dispatch({
       actionType: pageConstants.PAGE_LOADING_STARTED
@@ -68,4 +54,3 @@ export default {
     }
   }
 }
-*/

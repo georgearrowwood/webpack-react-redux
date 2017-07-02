@@ -2,18 +2,24 @@ import express from 'express'
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router'
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
 
 import config from '../config'
 import App from '../../../app/app'
+import reducers from '../../../app/reducers/products'
 
 let router = express.Router()
+const store = createStore(reducers)
 
 router.get('*', (req, res) => {
   const context = {}
   const pageBody = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>
+    <Provider store={store}>
+      <StaticRouter location={req.url} context={context}>
+        <App />
+      </StaticRouter>
+    </Provider>
   )
 
   res.render('index', {
