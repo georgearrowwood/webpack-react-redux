@@ -34,10 +34,6 @@ export default {
     ]
   },
 
-  devServer: {
-    headers: { "Access-Control-Allow-Origin": "*" }
-  },
-
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

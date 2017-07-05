@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 
 import config from '../config'
-import App from '../../../app/app'
+import Routes from '../../../app/routes'
 import reducers from '../../../app/reducers/products'
 
 let router = express.Router()
@@ -17,7 +17,7 @@ router.get('*', (req, res) => {
   const pageBody = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
-        <App />
+        <Routes />
       </StaticRouter>
     </Provider>
   )

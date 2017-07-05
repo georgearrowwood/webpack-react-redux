@@ -10,7 +10,7 @@ const config = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?' + host,
     'webpack/hot/only-dev-server',
-    "./client-dev",
+    "./client",
   ],
   output: {
     filename: "bundle.js",
@@ -33,7 +33,8 @@ const config = {
     hot: true,
     contentBase: path.join(__dirname, '../../dist'),
     filename: 'bundle.js',
-    publicPath: host + "/dist/"
+    publicPath: host + "/dist/",
+    headers: { "Access-Control-Allow-Origin": "*" }
   },
   plugins: [
     new webpack.DefinePlugin({

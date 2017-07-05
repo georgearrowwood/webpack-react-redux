@@ -1,33 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { render } from 'react-dom'
-import { createStore, combineReducers } from 'redux'
-import { Provider } from 'react-redux'
-import { createBrowserHistory } from 'history';
-import { Router, Route } from 'react-router'
-import { syncHistoryWithStore, routerReducer} from 'react-router-redux'
 
 import App from './app'
-import reducers from './reducers/products'
 
-const store = createStore(
-  combineReducers({
-    // ...reducers,
-    routing: routerReducer
-  })
-)
-let b = createBrowserHistory()
-const history = syncHistoryWithStore(b, store);
+import { createBrowserHistory } from 'history';
+import configureStore from './configureStore'
 
-export default class Index extends Component {
+let history = createBrowserHistory()
+const store = configureStore(history)
 
-  render () {
-    console.log(store, history);
-    return (
-      <Provider store={store}>
-        <Router history={history}>
-          <App />
-        </Router>
-      </Provider>
+render(<App store={store} history={history}/>, document.getElementById('root'))
+
+if (module.hot) {
+  module.hot.accept('./app', () => {
+    const NextApp = require('./app').default
+    render(
+      <NextApp  store={store} history={history} />,
+      document.getElementById('root')
     )
-  }
+  })
 }
