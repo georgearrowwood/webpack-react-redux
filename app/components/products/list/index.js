@@ -1,47 +1,65 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
 import ProductsListView from './view'
-import productsStore from '../../../stores/products'
-import productsActions from '../../../actions/products'
+import { fetchProducts } from '../../../actions'
 
-function getProductsList () {
-  return {products: productsStore.getList()}
-}
 
-export default class ProductsContainer extends Component {
-  constructor () {
-    super()
-    this._onChange = this._onChange.bind(this)
-    this.state = getProductsList()
+class ProductsContainer extends Component {
+  // constructor () {
+  //   super()
+  //   this._onChange = this._onChange.bind(this)
+  //   console.log('cons',this.props);
+  // }
+
+  // static propTypes = {
+    // products: PropTypes.array.isRequired,
+    // isFetching: PropTypes.bool.isRequired,
+    // dispatch: PropTypes.func.isRequired
+  // }
+
+  componentDidMount () {
+    // console.log('mm1',this.props);
+    // const { dispatch} = this.props
+    // dispatch(fetchProducts())
   }
 
   componentWillMount () {
-    setTimeout(productsActions.fetchList, 0)
+    this.props.dispatch(fetchProducts())
   }
 
-  _onChange () {
-    this.setState(getProductsList())
-  }
 
-  componentDidMount () {
-    productsStore.addChangeListener(this._onChange)
+
+  componentWillReceiveProps(nextProps) {
+    // this.props.dispatch(fetchProducts())
   }
 
   componentWillUnmount () {
-    productsStore.removeChangeListener(this._onChange)
+    // productsStore.removeChangeListener(this._onChange)
   }
 
   deleteProductHandler (e, id) {
     e.preventDefault()
-    productsActions.delete(id)
+    // productsActions.delete(id)
   }
 
   render () {
+    const { items, isFetching} = this.props
     return (
       <ProductsListView
-        products={this.state.products}
+        products={items}
         deleteProductHandler={this.deleteProductHandler}
       />
     )
   }
 };
+
+const mapStateToProps = state => {
+  return {
+    items: state.products ? state.products.items : [],
+    isFetching: state.products ? state.products.isFetching : false
+  }
+}
+
+export default connect(mapStateToProps)(ProductsContainer)

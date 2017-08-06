@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
 
 class Products extends Component {
-  constructor () {
-    super()
-    this.renderProduct = this.renderProduct.bind(this)
-  }
+  // constructor () {
+  //   super()
+  //   this.renderProduct = this.renderProduct.bind(this)
+  // }
 
   renderProduct (product) {
     return (
@@ -17,13 +16,13 @@ class Products extends Component {
       </li>
     )
   }
-
   render () {
     return (
       <div>
         List:
         <ul>
-          {this.props.products.map(this.renderProduct)}
+          {JSON.stringify(this.props)}
+          {this.props.products ? this.props.products.map(this.renderProduct) : ''}
         </ul>
       </div>
     )

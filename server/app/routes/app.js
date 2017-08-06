@@ -3,14 +3,15 @@ import React from 'react'
 import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore , applyMiddleware} from 'redux'
+import thunk from 'redux-thunk'
 
 import config from '../config'
 import Routes from '../../../app/routes'
 import reducers from '../../../app/reducers/products'
 
 let router = express.Router()
-const store = createStore(reducers)
+const store = createStore(reducers, applyMiddleware(thunk))
 
 router.get('*', (req, res) => {
   const context = {}

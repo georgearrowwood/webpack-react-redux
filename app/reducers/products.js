@@ -1,29 +1,29 @@
-import { combineReducers } from 'redux'
-
-const initialState = {
-  todos: []
-}
-
-function todoApp(state = initialState, action) {
+function products(state = {items: []}, action) {
   switch (action.type) {
-    case 'ADD_TODO':
+    case 'ADD_PRODUCT':
       return Object.assign({}, state, {
-        todos: [
-          ...state.todos,
+        products: [
+          ...state.products,
           {
-            text: action.text,
-            completed: false
+            text: action.title,
           }
         ]
       })
+    case 'REQUEST_PRODUCTS':
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case 'RECEIVE_PRODUCTS':
+      return {
+        ...state,
+        isFetching: false,
+        items: action.products,
+      }
     default:
+      // console.log('no reducer', action);
       return state
   }
 }
 
-
-const todoApps = combineReducers({
-  todoApp
-})
-
-export default todoApps
+export default products

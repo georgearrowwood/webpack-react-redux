@@ -1,25 +1,20 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { routerReducer, routerMiddleware} from 'react-router-redux'
+import thunk from 'redux-thunk'
 
-import reducers from './reducers/products'
+import reducers from './reducers/'
 
 export default function configureStore(routerHistory) {
-
-  const middleware = routerMiddleware(routerHistory)
-
+  const routerMiddlewareInstance = routerMiddleware(routerHistory)
   const store = createStore(
-    combineReducers({
-      ...reducers,
-      router: routerReducer
-    }),
-    applyMiddleware(middleware)
+    reducers,
+    applyMiddleware(thunk, routerMiddlewareInstance)
   )
-
   if (module.hot) {
       // Enable Webpack hot module replacement for reducers
-      module.hot.accept('./reducers/products', () => {
+      module.hot.accept('./reducers/index', () => {
         const nextRootReducer = combineReducers({
-          ...require('./reducers/products').default,
+          ...require('./reducers/index').default,
           router: routerReducer
         })
         store.replaceReducer(nextRootReducer);

@@ -8,7 +8,7 @@ class AddProduct extends Component {
       <div>
         Add Product:
         <div>
-          <input type='text' onChange={this.props.handleTitleChange} value={this.props.titleValue} />
+          <input type='text' onChange={this.props.handleTitleChange} />
           <button onClick={this.props.addHandle}>
             Add
           </button>
