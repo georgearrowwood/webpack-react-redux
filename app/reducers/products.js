@@ -1,4 +1,4 @@
-function products(state = {items: []}, action) {
+function products(state = {products: []}, action) {
   switch (action.type) {
     case 'ADD_PRODUCT':
       return Object.assign({}, state, {
