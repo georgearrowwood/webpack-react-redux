@@ -2,7 +2,7 @@ import productsApi from './api/products'
 
 export const addProduct = (title) => (dispatch, getState) => {
   return {
-    type: 'WILL_ADD_PRODUCT',
+    type: 'ADD_PRODUCT',
     title
   }
 }
