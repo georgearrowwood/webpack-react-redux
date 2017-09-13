@@ -12,9 +12,12 @@ const config = {
     filename: "bundle.js",
     path: path.resolve(__dirname, '../../dist'),
   },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
+      { test: /\.(js|jsx)$/, loader: 'babel-loader', exclude: /node_modules/ },
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract("css-loader")

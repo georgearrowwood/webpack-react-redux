@@ -27,13 +27,14 @@ export default {
     __filename: true,
     __dirname: true
   },
-
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
+      { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
-
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {

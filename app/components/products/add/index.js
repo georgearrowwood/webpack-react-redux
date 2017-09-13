@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { addProduct } from '../../../actions'
 
 // import productsActions from '../../../actions/products'
-import AddProductView from './view'
+import AddProductView from './view';
 
 class AddProductContainer extends Component {
   constructor (props) {
