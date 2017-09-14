@@ -14,7 +14,10 @@ function products(state = {products: []}, action) {
       return {
         ...state,
         isFetching: true,
-      }
+      };
+    case 'DELETE_PRODUCT':
+      console.log('oooo', action);
+      return state  
     case 'RECEIVE_PRODUCTS':
       return {
         ...state,

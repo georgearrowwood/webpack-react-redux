@@ -25,3 +25,8 @@ export const fetchProducts = () => (dispatch, getState) => {
       dispatch(receiveProducts(data.data.products))
     })
 }
+
+export const deleteProduct = (id) => ({
+  type: 'DELETE_PRODUCT',
+  id
+})
