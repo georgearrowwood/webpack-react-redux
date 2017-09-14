@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+// import PropTypes from 'prop-types'
 
 
 const deleteProduct = (e, id, handler) => {
@@ -19,9 +19,9 @@ const ProductsList = ({ products, deleteHandler }) => (
     </ul>
 );
 
-ProductsList.propTypes = {
-  deleteProductHandler: PropTypes.func,
-  products: PropTypes.array
-}
+// ProductsList.propTypes = {
+//   deleteProductHandler: PropTypes.func,
+//   products: PropTypes.array
+// }
 
 export default ProductsList

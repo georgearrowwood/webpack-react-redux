@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
-import { compose, lifecycle, branch, renderNothing, withHandlers} from 'recompose';
+import { compose, lifecycle, branch, withHandlers, renderComponent } from 'recompose';
 
 import Products from './view';
+import IsLoading from '../../fragments/is-loading';
 import { fetchProducts, deleteProduct } from '../../../actions';
 
 const lifecycleMethods = {
@@ -25,7 +26,7 @@ export const enhance = compose(
   connect(mapStateToProps),
   lifecycle(lifecycleMethods),
   withHandlers(handlers),
-  branch(isNotLoaded, renderNothing),
+  branch(isNotLoaded, renderComponent(IsLoading)),
 );
 
 export default enhance(Products);
