@@ -9,7 +9,7 @@ export default {
     return request.post('/api/products', {product: product})
   },
 
-  delete: function (id) {
+  deleteOne: function (id) {
     return request.delete('/api/products/' + id)
   }
 }

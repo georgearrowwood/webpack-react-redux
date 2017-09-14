@@ -26,7 +26,10 @@ export const fetchProducts = () => (dispatch, getState) => {
     })
 }
 
-export const deleteProduct = (id) => ({
-  type: 'DELETE_PRODUCT',
-  id
-})
+export const deleteProduct = id => (dispatch) => {
+  productsApi.deleteOne(id)
+    .then(() => {
+      dispatch(fetchProducts());
+    });
+}
+

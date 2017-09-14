@@ -15,12 +15,6 @@ function products(state = {products: []}, action) {
         ...state,
         isFetching: true,
       };
-    case 'DELETE_PRODUCT':
-      console.log('oooo', action);
-      return {
-        ...state,
-        items: state.items.filter(item => item.id !== action.id),
-      };
     case 'RECEIVE_PRODUCTS':
       return {
         ...state,
