@@ -17,7 +17,10 @@ function products(state = {products: []}, action) {
       };
     case 'DELETE_PRODUCT':
       console.log('oooo', action);
-      return state  
+      return {
+        ...state,
+        items: state.items.filter(item => item.id !== action.id),
+      };
     case 'RECEIVE_PRODUCTS':
       return {
         ...state,
