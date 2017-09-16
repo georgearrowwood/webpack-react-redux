@@ -1,6 +1,6 @@
-import server from './app/bootstrap'
+import server from './bootstrap';
 
-let port = process.env.PORT
+const port = process.env.PORT;
 server.listen(port, () => {
-  console.log('Server is listening at %s', port)
-})
+  console.log('Server is listening at %s', port);
+});

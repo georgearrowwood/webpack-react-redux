@@ -1,10 +1,10 @@
-import productsApi from './api/products'
+import services from './services';
 
 export const addProduct = (title) => (dispatch, getState) => {
-  return {
-    type: 'ADD_PRODUCT',
-    title
-  }
+  services.addOne(title)
+  .then(() => {
+    dispatch(fetchProducts());
+  });
 }
 
 export const requestProducts = () => ({
@@ -20,14 +20,14 @@ export const fetchProducts = () => (dispatch, getState) => {
   const state = getState()
   if (state.isFetching) return false
   dispatch(requestProducts())
-  productsApi.getList()
+  services.getList()
     .then((data) => {
       dispatch(receiveProducts(data.data.products))
     })
 }
 
 export const deleteProduct = id => (dispatch) => {
-  productsApi.deleteOne(id)
+  services.deleteOne(id)
     .then(() => {
       dispatch(fetchProducts());
     });

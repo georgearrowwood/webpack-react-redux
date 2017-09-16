@@ -3,9 +3,10 @@ Basic setup for react based project. After spending sometime looking on web for 
 * It bundled with webpack
 * Has hotloading feature enabled for development environment, so you dont need to refresh the page after you do change in code, and page is not reloaded.
 * It is isomorphic, will work with no javascript enabled.
-* Uses Flux for data model
+* Uses Redux for state management
 * Uses Jest for testing
 * Uses React Route v4
+* Uses Recompose library for functional components and HOC
 
 ## How to run
 

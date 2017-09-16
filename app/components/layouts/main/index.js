@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import Menu from '../../main-menu'
+import Menu from './menu'
 
 require('./style.css')
 

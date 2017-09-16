@@ -22,7 +22,7 @@ const ProductsList = ({ products = [], deleteHandler }) => (
 
 ProductsList.propTypes = {
   deleteHandler: PropTypes.func.isRequired,
-  products: PropTypes.arrayOf(React.PropTypes.object),
+  products: PropTypes.arrayOf(PropTypes.object),
 };
 
 ProductsList.defaultProps = {

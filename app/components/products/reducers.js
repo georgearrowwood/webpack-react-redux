@@ -1,15 +1,5 @@
 function products(state = {products: []}, action) {
   switch (action.type) {
-    case 'ADD_PRODUCT':
-      return {
-        ...state,
-        products: [
-          ...state.products,
-          {
-            text: action.title,
-          }
-        ]
-      }
     case 'REQUEST_PRODUCTS':
       return {
         ...state,
@@ -22,7 +12,6 @@ function products(state = {products: []}, action) {
         items: action.products,
       }
     default:
-      // console.log('no reducer', action);
       return state
   }
 }

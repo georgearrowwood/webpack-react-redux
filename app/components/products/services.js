@@ -1,12 +1,12 @@
-import request from '../utils/request'
+import request from '../../modules/request'
 
 export default {
   getList: function () {
     return request.get('/api/products')
   },
 
-  create: function (product) {
-    return request.post('/api/products', {product: product})
+  addOne: function (title) {
+    return request.post('/api/products', {product: {title: title}});
   },
 
   deleteOne: function (id) {

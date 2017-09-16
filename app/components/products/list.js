@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { compose, lifecycle, branch, withHandlers, renderNothing } from 'recompose';
 
-import Products from './view';
-import { fetchProducts, deleteProduct } from '../../../actions';
+import Products from './list-view';
+import { fetchProducts, deleteProduct } from './actions';
 
 const lifecycleMethods = {
   componentWillMount() {
