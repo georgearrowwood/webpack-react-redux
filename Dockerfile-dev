@@ -1,0 +1,12 @@
+FROM node:boron
+
+WORKDIR /srv
+ADD . .
+
+RUN yarn global add nodemon
+RUN apk add --no-cache curl
+RUN yarn
+
+EXPOSE 8888 8080
+
+CMD ["yarn", "run", "server-watch"]

@@ -1,0 +1,12 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile-dev
+    ports:
+     - "8080:8080"
+     - "8888:8888"
+    volumes:
+     - ./:/srv
+    env_file: .local.env

@@ -5,7 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 const config = {
   context: path.resolve(__dirname, '../../app'),
   entry: [
-    './client.js',
+    '../app/client.jsx',
   ],
   output: {
     filename: 'bundle.js',
