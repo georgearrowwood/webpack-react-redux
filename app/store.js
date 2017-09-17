@@ -10,15 +10,16 @@ export default function configureStore(routerHistory) {
     reducers,
     applyMiddleware(thunk, routerMiddlewareInstance),
   );
+  /* eslint-disable global-require */
   if (module.hot) {
-      // Enable Webpack hot module replacement for reducers
-      module.hot.accept('./reducers', () => {
-        const nextRootReducer = combineReducers({
-          ...require('./reducers').default,
-          router: routerReducer
-        })
-        store.replaceReducer(nextRootReducer);
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('./reducers', () => {
+      const nextRootReducer = combineReducers({
+        ...require('./reducers').default,
+        router: routerReducer,
       });
+      store.replaceReducer(nextRootReducer);
+    });
   }
-  return store
+  return store;
 }

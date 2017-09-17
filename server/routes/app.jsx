@@ -14,21 +14,21 @@ const router = express.Router();
 const store = createStore(reducers, applyMiddleware(thunk));
 
 router.get('*', (req, res) => {
-  const context = {}
+  const context = {};
   const pageBody = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter location={req.url} context={context}>
         <Routes />
       </StaticRouter>
-    </Provider>
-  )
+    </Provider>,
+  );
 
   res.render('index', {
-    pageBody: pageBody,
+    pageBody,
     title: config.title,
     scriptUrl: config.scriptUrl,
-    styleUrl: config.styleUrl
-  })
-})
+    styleUrl: config.styleUrl,
+  });
+});
 
 module.exports = router;

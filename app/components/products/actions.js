@@ -24,11 +24,8 @@ export const addProduct = title => (dispatch) => {
     });
 };
 
-export const deleteProduct = id => dispatch => {
-  console.log('dd',id);
-  
+export const deleteProduct = id => dispatch =>
   services.deleteOne(id)
     .then(() => {
       dispatch(fetchProducts());
     });
-}

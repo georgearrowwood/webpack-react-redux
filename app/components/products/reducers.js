@@ -1,4 +1,4 @@
-function products(state = {products: []}, action) {
+function products(state = { products: [] }, action) {
   switch (action.type) {
     case 'REQUEST_PRODUCTS':
       return {
@@ -10,10 +10,10 @@ function products(state = {products: []}, action) {
         ...state,
         isFetching: false,
         items: action.products,
-      }
+      };
     default:
-      return state
+      return state;
   }
 }
 
-export default products
+export default products;
