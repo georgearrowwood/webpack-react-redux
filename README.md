@@ -12,7 +12,7 @@ Basic setup for react based project. After spending sometime looking on web for 
 ## How to run
 
 To run it in dev mode
-* for server
+* for server and client in watch dev mode
 ```
   docker-compose up
 ```
