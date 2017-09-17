@@ -7,20 +7,31 @@ Basic setup for react based project. After spending sometime looking on web for 
 * Uses Jest for testing
 * Uses React Route v4
 * Uses Recompose library for functional components and HOC
+* Dokerized
 
 ## How to run
 
-To run it in dev mode, run in two terminals:
+To run it in dev mode
 * for server
+```
+  docker-compose up
+```
+Then open in the browser:
+```
+  http://localhost:8080/
+```
+
+
+## Tasks descripton
+* Watch dev mode for server
 ```
   npm run server-watch
 ```
-* for frontend
+* Hotload dev mode for frontend
 ```
   npm run client-watch
 ```
 it will run it in hot load mode
-
 
 To build and run server and client for production just run
 ```
@@ -41,3 +52,4 @@ To build client for production run
 ```
 npm run client-build
 ```
+or 

@@ -1,4 +1,4 @@
-FROM node:boron
+FROM node:8.2-alpine
 
 WORKDIR /srv
 ADD . .
@@ -9,4 +9,4 @@ RUN yarn
 
 EXPOSE 8888 8080
 
-CMD ["yarn", "run", "server-watch"]
+CMD ["yarn", "run", "server-client-watch"]
