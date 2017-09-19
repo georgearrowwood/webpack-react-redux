@@ -46,6 +46,8 @@ const config = {
         'process.env': {
           NODE_ENV: JSON.stringify('development'),
           config: JSON.stringify('development'),
+          ENV: JSON.stringify('client'),
+          API_URL: JSON.stringify(process.env.API_URL),
         },
       }),
       new webpack.NamedModulesPlugin(),

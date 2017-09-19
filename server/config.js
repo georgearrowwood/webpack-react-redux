@@ -1,2 +1,5 @@
-const config = require('../config/' + process.env.config).default;
-export default config
+export default {
+  title: process.env.TITLE,
+  scriptUrl: process.env.SCRIPT_URL,
+  styleUrl: process.env.STYLE_URL,
+};

@@ -14,7 +14,7 @@ export const fetchProducts = () => (dispatch, getState) => {
   if (state.isFetching) return false;
   dispatch(requestProducts());
   return services.getList()
-    .then(data => dispatch(receiveProducts(data.data.products)));
+    .then(data => dispatch(receiveProducts(data.data.products)));  
 };
 
 export const addProduct = title => (dispatch) => {

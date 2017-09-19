@@ -9,4 +9,4 @@ RUN yarn
 
 EXPOSE 8888 8080
 
-CMD ["yarn", "run", "server-client-watch"]
+CMD ["yarn", "run", "server-watch"]

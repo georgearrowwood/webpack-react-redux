@@ -12,7 +12,7 @@
     "server-client-watch": "npm run client-watch & npm run server-watch",
     "client-watch": "babel-node webpack/hotLoadClient.js",
     "server-watch": "nodemon --watch server --watch app --exec npm run server-dev",
-    "server-dev": "NODE_ENV=development BABEL_ENV=node config=development PORT=8080 node_modules/babel-cli/bin/babel-node.js server",
+    "server-dev": "ENV=server NODE_ENV=development BABEL_ENV=node config=development PORT=8080 node_modules/babel-cli/bin/babel-node.js server",
     "test": "jest",
     "lint": "eslint server app"
   },

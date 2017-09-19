@@ -52,4 +52,3 @@ To build client for production run
 ```
 npm run client-build
 ```
-or 
