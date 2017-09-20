@@ -12,12 +12,13 @@ const getLayoutByName = (name) => {
 };
 
 const LayoutContainer = ({ name, children }) => {
+  // console.log('pp', children, typeof children);
   const Layout = getLayoutByName(name);
   return <Layout>{children}</Layout>;
 };
 
 LayoutContainer.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.shape().isRequired,
   name: PropTypes.string.isRequired,
 };
 

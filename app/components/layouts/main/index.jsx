@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Menu from './menu';
 
-require('./style.css')
+require('./style.css');
 
 const Layout = ({ children }) => (
   <div>
@@ -13,7 +13,7 @@ const Layout = ({ children }) => (
 );
 
 Layout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.shape().isRequired,
 };
 
 export default Layout;
