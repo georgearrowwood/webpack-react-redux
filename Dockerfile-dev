@@ -1,12 +1,11 @@
 FROM node:8.2-alpine
 
 WORKDIR /srv
-ADD . .
+COPY . .
 
-RUN yarn global add nodemon
+RUN npm i -g nodemon
 RUN apk add --no-cache curl
-RUN yarn
 
 EXPOSE 8888 8080
 
-CMD ["yarn", "run", "server-watch"]
+CMD npm i && npm run server-watch

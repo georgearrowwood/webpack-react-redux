@@ -17,8 +17,8 @@ export const fetchProducts = () => (dispatch, getState) => {
     .then(data => dispatch(receiveProducts(data.data.products)));  
 };
 
-export const addProduct = title => (dispatch) => {
-  services.addOne(title)
+export const addProduct = data => (dispatch) => {
+  services.addOne(data.title)
     .then(() => {
       dispatch(fetchProducts());
     });

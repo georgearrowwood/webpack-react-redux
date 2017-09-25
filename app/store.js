@@ -6,8 +6,11 @@ import reducers from './reducers';
 
 export default function configureStore(routerHistory) {
   const routerMiddlewareInstance = routerMiddleware(routerHistory);
+  /* eslint-env browser */
+  const initState = window.PRELOADED_STATE;
   const store = createStore(
     reducers,
+    initState,
     applyMiddleware(thunk, routerMiddlewareInstance),
   );
   /* eslint-disable global-require */

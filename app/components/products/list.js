@@ -5,8 +5,10 @@ import Products from './list-view';
 import { fetchProducts, deleteProduct } from './actions';
 
 const lifecycleMethods = {
-  componentDidMount() {
-    this.props.dispatch(fetchProducts());
+  componentWillMount() {
+    if (!this.props.products) {
+      this.props.dispatch(fetchProducts());
+    }
   },
 };
 
