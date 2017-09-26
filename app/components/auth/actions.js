@@ -10,10 +10,11 @@ export const loginAction = ({ login, password }, history) => (dispatch) => {
         dispatch({ type: 'AUTHENTICATED' });
         /* eslint-env browser */
         localStorage.setItem('user-token', res.data.token);
-        history.push('/secret');
+        // history.push('/');
+        history.goBack();
       })  
       .catch ((error) => {
-        console.log('err log', error.response.data);
+        console.log('err log', error);
         dispatch({
           type: 'AUTHENTICATION_ERROR',
           payload: 'Invalid email or password',
