@@ -6,9 +6,11 @@ const Menu = ({ authenticated }) => (
   <nav>
     <NavLink exact to="/" > home </NavLink>
     <NavLink to="/about"> about </NavLink>
-    <NavLink to="/products"> products </NavLink>
+    {authenticated &&
+      <NavLink to="/products"> products </NavLink>
+    }  
     {!authenticated &&
-    <NavLink to="/login"> Login </NavLink>
+      <NavLink to="/login"> Login </NavLink>
     }
   </nav>
 );

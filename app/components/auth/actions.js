@@ -1,3 +1,5 @@
+import cookie from 'react-cookies';
+
 import request from '../../modules/request';
 
 export const loginAction = ({ login, password }, history) => (dispatch) => {
@@ -9,8 +11,7 @@ export const loginAction = ({ login, password }, history) => (dispatch) => {
         
         dispatch({ type: 'AUTHENTICATED' });
         /* eslint-env browser */
-        localStorage.setItem('user-token', res.data.token);
-        // history.push('/');
+        cookie.save('user', res.data, { path: '/' })
         history.goBack();
       })  
       .catch ((error) => {

@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
+import cookie from 'react-cookies';
 
 import routes from './routes';
 
@@ -11,6 +12,11 @@ import configureStore from './store';
 
 const history = createBrowserHistory();
 const store = configureStore(history);
+
+const user = cookie.load('user');
+if (user && user.token) {
+  store.dispatch({ type: 'AUTHENTICATED' });
+}
 
 const App = (Routes, Store, History) => (
   <Provider store={Store}>

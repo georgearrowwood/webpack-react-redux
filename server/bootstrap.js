@@ -2,6 +2,7 @@ import path from 'path';
 import Express from 'express';
 import exphbs from 'express-handlebars';
 import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
 
 import appRoutes from './routes/app';
 import productRoutes from './routes/products';
@@ -17,6 +18,7 @@ server
   .engine('.hbs', exphbs({
     extname: '.hbs',
   }))
+  .use(cookieParser())
   .set('view engine', '.hbs')
   .set('views', 'server/views/')
   .use('/dist', Express.static(path.join(__dirname, '../dist')))
