@@ -17,7 +17,7 @@ const appController = {
     const store = createStore(reducers, preState, applyMiddleware(thunk));
 
     // console.log('serv coo', req.cookies);
-    const user = JSON.parse(req.cookies.user);
+    const user = req.cookies.user ? JSON.parse(req.cookies.user) : {};
     if (user && user.token) {
       store.dispatch({ type: 'AUTHENTICATED' });
     }

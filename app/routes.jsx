@@ -5,6 +5,7 @@ import Layout from './components/layouts';
 
 import Home from './components/pages/home';
 import Login from './components/pages/login';
+import Logout from './components/auth/logout';
 import About from './components/pages/about';
 import Products from './components/pages/products';
 
@@ -20,6 +21,7 @@ export default () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route exact path="/products" component={RequireAuth(Products)} />
+      <Route exact path="/logout" component={RequireAuth(Logout)} />
 
       <Route component={NotFound} />
     </Switch>

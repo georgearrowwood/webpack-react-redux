@@ -4,7 +4,7 @@ export default (state = {}, action) => {
     case 'AUTHENTICATED':
       return { ...state, authenticated: true, errorMessage: '' };
     case 'UNAUTHENTICATED':
-      return { ...state, authenticated: false };
+      return { ...state, authenticated: false, errorMessage: '' };
     case 'AUTHENTICATION_ERROR':
       return { ...state, errorMessage: action.payload };
     default:

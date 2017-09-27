@@ -8,9 +8,12 @@ const Menu = ({ authenticated }) => (
     <NavLink to="/about"> about </NavLink>
     {authenticated &&
       <NavLink to="/products"> products </NavLink>
-    }  
+    }
     {!authenticated &&
       <NavLink to="/login"> Login </NavLink>
+    }
+    {authenticated &&
+      <NavLink to="/logout"> Logout </NavLink>
     }
   </nav>
 );

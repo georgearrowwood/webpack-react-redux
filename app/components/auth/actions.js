@@ -11,7 +11,7 @@ export const loginAction = ({ login, password }, history) => (dispatch) => {
         
         dispatch({ type: 'AUTHENTICATED' });
         /* eslint-env browser */
-        cookie.save('user', res.data, { path: '/' })
+        cookie.save('user', res.data, { path: '/' });
         history.goBack();
       })  
       .catch ((error) => {
@@ -23,5 +23,10 @@ export const loginAction = ({ login, password }, history) => (dispatch) => {
       });
 };
 
-export const as = 1;
+export const logoutUser = () => {
+  cookie.remove('user', { path: '/' });
+  return {
+    type: 'UNAUTHENTICATED',
+  };
+};
 
