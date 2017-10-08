@@ -11,10 +11,11 @@ export const receiveProducts = data => ({
 
 export const fetchProducts = () => (dispatch, getState) => {
   const state = getState();
+
   if (state.isFetching) return false;
   dispatch(requestProducts());
   return services.getList()
-    .then(data => dispatch(receiveProducts(data.data.products)));  
+    .then(data => dispatch(receiveProducts(data.data.products)));
 };
 
 export const addProduct = data => (dispatch) => {

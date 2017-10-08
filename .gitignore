@@ -44,3 +44,4 @@ yarn-error.log
 dist
 
 package-lock.json
+dev/.bash_history

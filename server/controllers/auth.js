@@ -5,24 +5,39 @@ import config from '../config';
 const authController = {
   login(req, res) {
     if (req.body.login === 'login' && req.body.password === 'password') {
-      const token = jwt.sign({
+      const userToken = jwt.sign({
         login: req.body.login,
-      }, config.jwtSecret, { expiresIn: '1h' });
+        type: 'user',
+      }, config.jwtSecret, {});
       res.json({
-        user: 'Test user',
-        token,
+        user: {
+          name: 'Test user',
+          type: 'user',
+        },
+        userToken,
       });
     }
     res.send(401);
   },
-  auth() {
-    return (req, res, next) =>
-      jwt.verify(req.get('Authorization'), config.jwtSecret, (err, decoded) => {
-        console.log('auth', err, decoded);
-        
-        if (err) return res.status(401).json({ error: 'You are not authorized to view this content.' });
-        next();
+
+  authApi(userType) {
+    return (req, res, next) => {
+      const token = req.get('Authorization');
+      jwt.verify(token, config.jwtSecret, (err, decoded) => {
+        if (err || decoded.type !== userType) return res.status(401).json({ error: 'You are not authorized to view this content.' });
+        return next();
       });
+    };
+  },
+
+  authApp(userType) {
+    return (req, res, next) => {
+      const token = req.cookies.userToken;
+      jwt.verify(token, config.jwtSecret, (err, decoded) => {
+        if (err || decoded.type !== userType) return res.redirect('/login');
+        return next();
+      });
+    };
   },
 
 };

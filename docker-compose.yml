@@ -3,10 +3,11 @@ services:
   server:
     build:
       context: ./
-      dockerfile: Dockerfile-dev
+      dockerfile: dev/Dockerfile
     ports:
      - "8080:8080"
      - "8888:8888"
     volumes:
      - ./:/srv
+     - ./dev/.bash_history:/root/.ash_history
     env_file: .local.env

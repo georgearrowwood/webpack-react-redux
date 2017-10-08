@@ -1,6 +1,4 @@
 function products(state = {}, action) {
-  console.log('pr red', state);
-  
   switch (action.type) {
     case 'REQUEST_PRODUCTS':
       return {

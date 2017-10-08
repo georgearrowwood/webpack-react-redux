@@ -1,7 +1,7 @@
-import request from '../../modules/request';
+import services from '../../modules/services';
 
 export default {
-  getList: () => request.get('/api/products'),
-  addOne: title => request.post('/api/products', { product: { title } }),
-  deleteOne: id => request.delete(`/api/products/${id}`),
+  getList: () => services.get('/api/products'),
+  addOne: title => services.post('/api/products', { product: { title } }),
+  deleteOne: id => services.delete(`/api/products/${id}`),
 };

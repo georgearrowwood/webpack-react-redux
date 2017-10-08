@@ -13,8 +13,8 @@ import configureStore from './store';
 const history = createBrowserHistory();
 const store = configureStore(history);
 
-const user = cookie.load('user');
-if (user && user.token) {
+const userToken = cookie.load('userToken');
+if (userToken) {
   store.dispatch({ type: 'AUTHENTICATED' });
 }
 

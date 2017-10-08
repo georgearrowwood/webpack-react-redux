@@ -1,7 +1,10 @@
+import Debug from 'debug';
+
 import server from './bootstrap';
 
+const debug = Debug('server');
 const port = process.env.PORT;
-/* eslint-disable no-console */
+
 server.listen(port, () => {
-  console.log('Server is listening at %s', port);
+  debug('Server is listening at');
 });

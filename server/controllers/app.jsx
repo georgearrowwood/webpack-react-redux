@@ -4,7 +4,6 @@ import { StaticRouter } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-var cookieParser = require('cookie-parser')
 
 import config from '../config';
 import Routes from '../../app/routes';
@@ -13,12 +12,11 @@ import loadPreState from '../modules/load-pre-state';
 
 const appController = {
   init: async (req, res) => {
-    const preState = await loadPreState(req.url);
+    const userToken = req.cookies.userToken;
+    const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
+    const preState = await loadPreState(req.url, user, userToken);
     const store = createStore(reducers, preState, applyMiddleware(thunk));
-
-    // console.log('serv coo', req.cookies);
-    const user = req.cookies.user ? JSON.parse(req.cookies.user) : {};
-    if (user && user.token) {
+    if (userToken) {
       store.dispatch({ type: 'AUTHENTICATED' });
     }
 

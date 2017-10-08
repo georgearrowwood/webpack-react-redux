@@ -1,9 +1,11 @@
 import express from 'express';
 
-import appController from '../controllers/app';
+import app from '../controllers/app';
+import auth from '../controllers/auth';
 
 const router = express.Router();
 
-router.get('*', appController.init);
+router.get('/products', auth.authApp('user'), app.init);
+router.get('*', app.init);
 
 export default router;

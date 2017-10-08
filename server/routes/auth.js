@@ -12,6 +12,4 @@ router.post('/api/login', validation.validateRequest({
   },
 }), authController.login);
 
-router.post('/api/login', authController.auth);
-
 export default router;

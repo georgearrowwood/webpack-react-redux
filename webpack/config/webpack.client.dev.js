@@ -14,6 +14,7 @@ const config = {
   config: {
     context: path.resolve(__dirname, '../../app'),
     entry: [
+      'babel-regenerator-runtime',
       'react-hot-loader/patch',
       `webpack-dev-server/client?${host}`,
       'webpack/hot/only-dev-server',
