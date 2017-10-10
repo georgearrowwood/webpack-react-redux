@@ -6,8 +6,8 @@ Basic setup for react based project. After spending sometime looking on web for 
 * Uses Redux for state management
 * Uses Jest for testing
 * Uses React Route v4
-* Uses Recompose library for functional components and HOC
 * Dokerized
+* Has basic auth setup
 
 ## How to run
 
