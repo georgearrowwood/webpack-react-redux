@@ -12,7 +12,6 @@ const getLayoutByName = (name) => {
 };
 
 const LayoutContainer = ({ name, children }) => {
-  // console.log('pp', children, typeof children);
   const Layout = getLayoutByName(name);
   return <Layout>{children}</Layout>;
 };

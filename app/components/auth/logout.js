@@ -1,17 +1,20 @@
+import { Component } from 'react';
 import { connect } from 'react-redux';
-import { compose, lifecycle } from 'recompose';
+import PropTypes from 'prop-types';
 
 import { logoutUser } from './actions';
 
-const lifecycleMethods = {
+class LogOut extends Component {
   componentWillMount() {
     this.props.logoutUser();
-  },
+  }
+  render() {
+    return null;
+  }
+}
+
+LogOut.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
 };
 
-const enhance = compose(
-  connect(null, { logoutUser }),
-  lifecycle(lifecycleMethods),
-);
-
-export default enhance(() => null);
+export default connect(null, { logoutUser })(LogOut);

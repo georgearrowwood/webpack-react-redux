@@ -6,7 +6,7 @@ const deleteProduct = (e, id, handler) => {
   handler(id);
 };
 
-const ProductsList = ({ products = [], deleteHandler }) => (
+const ProductsList = ({ products, deleteHandler }) => (
   <ul>
     { products.map(product => (
       <li key={product.id}>

@@ -1,30 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default (ComposedComponent) => {
+export default (AuthedComponent) => {
   class RequireAuth extends Component {
     componentWillMount() {
-      console.log('auwm', this.props.authenticated);
       if (!this.props.authenticated) {
-        console.log('wpl', this.props, this);
         this.props.history.push('/login');
       }
     }
     componentWillUpdate(nextProps) {
       if (!nextProps.authenticated) {
-        console.log('wuu');
         this.props.history.push('/login');
       }
     }
     render() {
-      return <ComposedComponent {...this.props} />;
+      return <AuthedComponent {...this.props} />;
     }
   }
 
-  const mapStateToProps = state => {
-    console.log('sstat', state);
-    return ({ authenticated: state.auth.authenticated });
-  }
+  RequireAuth.propTypes = {
+    authenticated: PropTypes.bool,
+    history: PropTypes.shape().isRequired,
+  };
+
+  RequireAuth.defaultProps = {
+    authenticated: false,
+  };
+
+  const mapStateToProps = state =>
+    ({ authenticated: state.auth.authenticated });
 
   return connect(mapStateToProps)(RequireAuth);
 };

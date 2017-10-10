@@ -9,7 +9,7 @@ const authController = {
         login: req.body.login,
         type: 'user',
       }, config.jwtSecret, {});
-      res.json({
+      return res.json({
         user: {
           name: 'Test user',
           type: 'user',
@@ -17,7 +17,7 @@ const authController = {
         userToken,
       });
     }
-    res.send(401);
+    return res.send(401);
   },
 
   authApi(userType) {

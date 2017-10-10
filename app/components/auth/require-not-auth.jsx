@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-export default (ComposedComponent) => {
+export default (AuthedComponent) => {
   class RequireNotAuth extends Component {
     componentWillMount() {
       if (this.props.authenticated) {
@@ -10,19 +11,25 @@ export default (ComposedComponent) => {
     }
     componentWillUpdate(nextProps) {
       if (nextProps.authenticated) {
-        console.log('wuu');
         this.props.history.push('/');
       }
     }
     render() {
-      return <ComposedComponent {...this.props} />;
+      return <AuthedComponent {...this.props} />;
     }
   }
 
+  RequireNotAuth.propTypes = {
+    authenticated: PropTypes.bool,
+    history: PropTypes.shape().isRequired,
+  };
 
-  const mapStateToProps = state => {
-    return ({ authenticated: state.auth.authenticated });
-  }
+  RequireNotAuth.defaultProps = {
+    authenticated: false,
+  };
+
+  const mapStateToProps = state =>
+    ({ authenticated: state.auth.authenticated });
 
   return connect(mapStateToProps)(RequireNotAuth);
 };
