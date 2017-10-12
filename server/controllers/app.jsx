@@ -4,30 +4,32 @@ import { StaticRouter } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
+import ignoreStyles from 'ignore-styles';
 
 import config from '../config';
 import Routes from '../../app/routes';
 import reducers from '../../app/reducers';
 import loadPreState from '../modules/load-pre-state';
 
+ignoreStyles(['.sass', '.scss']);
+
 const appController = {
   init: async (req, res) => {
-    const userToken = req.cookies.userToken;
+    const { userToken } = req.cookies;
     const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
     const preState = await loadPreState(req.url, user, userToken);
     const store = createStore(reducers, preState, applyMiddleware(thunk));
     if (userToken) {
       store.dispatch({ type: 'AUTHENTICATED' });
     }
-
     const context = {};
-    const pageBody = ReactDOMServer.renderToString(
+    const app = (
       <Provider store={store}>
         <StaticRouter location={req.url} context={context}>
           <Routes />
         </StaticRouter>
-      </Provider>,
-    );
+      </Provider>);
+    const pageBody = ReactDOMServer.renderToString(app);
 
     res.render('index', {
       pageBody,

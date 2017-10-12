@@ -25,7 +25,6 @@ const config = {
       path: path.resolve(__dirname, '../../dist'),
       publicPath: `${host}/dist/`,
     },
-
     resolve: {
       extensions: ['.js', '.jsx'],
     },
@@ -34,11 +33,12 @@ const config = {
       loaders: [
         { test: /\.(js|jsx)$/, loaders: ['babel-loader'], exclude: /node_modules/ },
         {
-          test: /\.css$/,
-          loader: 'style-loader',
-        }, {
-          test: /\.css$/,
-          loader: 'css-loader',
+          test: /\.scss$/,
+          use: [
+            { loader: 'style-loader' },
+            { loader: 'css-loader' },
+            { loader: 'sass-loader' },
+          ],
         },
       ],
     },

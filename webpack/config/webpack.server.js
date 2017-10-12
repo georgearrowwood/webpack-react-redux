@@ -19,7 +19,7 @@ export default {
 
   node: {
     __filename: true,
-    __dirname: true
+    __dirname: true,
   },
   resolve: {
     extensions: ['.js', '.jsx'],

@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { hydrate } from 'react-dom';
 
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux';
@@ -26,12 +26,12 @@ const App = (Routes, Store, History) => (
   </Provider>
 );
 /* eslint-env browser */
-render(App(routes, store, history), document.getElementById('root'));
+hydrate(App(routes, store, history), document.getElementById('root'));
 /* eslint-disable global-require */
 if (module.hot) {
   module.hot.accept('./routes', () => {
     const NextRoutes = require('./routes').default;
-    render(
+    hydrate(
       App(NextRoutes, store, history),
       document.getElementById('root'),
     );

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Menu from './menu';
 
-require('./style.css');
+require('./style.scss');
 
 const Layout = ({ children }) => (
   <div>
