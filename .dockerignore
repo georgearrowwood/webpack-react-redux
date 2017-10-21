@@ -4,8 +4,8 @@
 
 # Dot files
 .gitignore
-.local.env*
 .dockerignore
+.git
 
 # Docker-related files
 docker-compose.yml
@@ -16,3 +16,6 @@ README.md
 
 # System files
 .DS_Store
+node_modules
+dev
+dist

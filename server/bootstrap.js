@@ -3,13 +3,12 @@ import Express from 'express';
 import exphbs from 'express-handlebars';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
-import Debug from 'debug';
 
+import logger from './modules/logger';
 import appRoutes from './routes/app';
 import productRoutes from './routes/products';
 import authRoutes from './routes/auth';
 
-const debug = Debug('server');
 const server = Express();
 
 server
@@ -23,7 +22,7 @@ server
   .use(cookieParser())
   .set('view engine', '.hbs')
   .set('views', 'server/views/')
-  .use('/dist', Express.static(path.join(__dirname, '../dist')))
+  .use('/assets', Express.static(path.join(process.cwd(), '/dist')))
   .use('/', productRoutes)
   .use('/', authRoutes)
   .use('/', appRoutes)
@@ -32,7 +31,7 @@ server
   })
   // error handler
   .use((err, req, res) => {
-    debug(err);
+    logger.debug(err);
     res.send(500);
   });
 

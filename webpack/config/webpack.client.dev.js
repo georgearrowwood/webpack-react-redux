@@ -47,7 +47,7 @@ const config = {
         'process.env': {
           NODE_ENV: JSON.stringify('development'),
           config: JSON.stringify('development'),
-          ENV: JSON.stringify('client'),
+          ENV: JSON.stringify('browser'),
           API_URL: JSON.stringify(process.env.API_URL),
         },
       }),

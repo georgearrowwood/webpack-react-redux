@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-import config from '../config';
+import config from '../modules/config';
 
 const authController = {
   login(req, res) {

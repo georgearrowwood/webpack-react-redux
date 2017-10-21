@@ -1,12 +1,15 @@
-FROM node:8.2-alpine
+FROM node:8.7-alpine
 
 WORKDIR /srv
+RUN apk add --no-cache curl
 
 RUN chown -R node:node /srv
 USER node
 
-# Add any unwanted files to .dockerignore
-ADD . .
+COPY . .
+RUN npm i
+RUN npm run all-build
 
-EXPOSE 3000
-CMD ["yarn", "run", "server-run"]
+EXPOSE 8081 8081
+
+CMD ["npm", "run", "server-run"]

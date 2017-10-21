@@ -1,10 +1,9 @@
-import Debug from 'debug';
+import logger from './modules/logger';
 
 import server from './bootstrap';
 
-const debug = Debug('server');
 const port = process.env.PORT;
 
 server.listen(port, () => {
-  debug('Server is listening at');
+  logger.info(`Server is listening at ${port}`);
 });

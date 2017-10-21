@@ -4,11 +4,19 @@ import fs from 'fs';
 
 export default {
 
-  entry: path.resolve(__dirname, '../../server/index.js'),
+  context: path.resolve(__dirname, '../../server'),
+  entry: [
+    'babel-regenerator-runtime',
+    './index',
+  ],
 
   output: {
     path: path.resolve(__dirname, '../../dist'),
     filename: 'server.bundle.js',
+  },
+
+  resolve: {
+    extensions: ['.js', '.jsx'],
   },
 
   target: 'node',
@@ -21,20 +29,20 @@ export default {
     __filename: true,
     __dirname: true,
   },
-  resolve: {
-    extensions: ['.js', '.jsx'],
-  },
+
   module: {
     loaders: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
+      // { test: /\.(scss|css)$/, loader: 'ignore-loader' },
     ],
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
-        PORT: 3000,
-        config: JSON.stringify('production'),
+        PORT: 8081,
+        ENV: JSON.stringify('server'),
+        BABEL_ENV: JSON.stringify('node'),
       },
     }),
   ],

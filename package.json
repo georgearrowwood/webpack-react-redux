@@ -12,7 +12,7 @@
     "server-client-watch": "npm run client-watch & npm run server-watch",
     "client-watch": "babel-node webpack/hotLoadClient.js",
     "server-watch": "nodemon --watch server --watch app --exec npm run server-dev",
-    "server-dev": "DEBUG_COLORS=true DEBUG=server ENV=server NODE_ENV=development BABEL_ENV=node config=development PORT=8080 node_modules/babel-cli/bin/babel-node.js --watch server --watch app server",
+    "server-dev": "ENV=server NODE_ENV=development BABEL_ENV=node config=development PORT=8080 node_modules/babel-cli/bin/babel-node.js server",
     "test": "jest",
     "lint": "eslint server app"
   },
@@ -21,17 +21,15 @@
   "dependencies": {
     "@team-griffin/react-router-connected": "0.1.0",
     "axios": "0.16.2",
+    "babel-plugin-transform-require-ignore": "^0.1.1",
     "body-parser": "1.18.2",
     "cookie-parser": "1.4.3",
-    "debug": "3.1.0",
     "events": "1.1.1",
     "express": "4.16.2",
     "express-handlebars": "3.0.0",
     "express-joi-params": "0.1.2",
     "history": "4.7.2",
-    "ignore-styles": "^5.0.1",
     "jsonwebtoken": "8.1.0",
-    "keymirror": "0.1.1",
     "prop-types": "15.6.0",
     "react": "16.0.0",
     "react-cookies": "0.1.0",
@@ -42,7 +40,8 @@
     "react-router-redux": "5.0.0-alpha.6",
     "redux": "3.7.2",
     "redux-form": "7.1.0",
-    "redux-thunk": "2.2.0"
+    "redux-thunk": "2.2.0",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
@@ -50,7 +49,6 @@
     "babel-eslint": "8.0.1",
     "babel-jest": "21.2.0",
     "babel-loader": "7.1.2",
-    "babel-plugin-transform-require-ignore": "0.1.1",
     "babel-preset-es2015": "6.24.1",
     "babel-preset-react": "6.24.1",
     "babel-preset-stage-0": "6.24.1",
@@ -67,6 +65,7 @@
     "eslint-plugin-react": "7.4.0",
     "eslint-plugin-standard": "3.0.1",
     "extract-text-webpack-plugin": "3.0.1",
+    "ignore-loader": "^0.1.2",
     "jest": "21.2.1",
     "node-sass": "^4.5.3",
     "react-hot-loader": "3.0.0-beta.6",

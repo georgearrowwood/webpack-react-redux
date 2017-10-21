@@ -4,14 +4,11 @@ import { StaticRouter } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import ignoreStyles from 'ignore-styles';
 
-import config from '../config';
+import config from '../modules/config';
 import Routes from '../../app/routes';
 import reducers from '../../app/reducers';
 import loadPreState from '../modules/load-pre-state';
-
-ignoreStyles(['.sass', '.scss']);
 
 const appController = {
   init: async (req, res) => {

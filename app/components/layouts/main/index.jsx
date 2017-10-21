@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 import Menu from './menu';
 
+/* eslint global-require: "off" */
+// if (process.env.ENV === 'browser') 
 require('./style.scss');
 
 const Layout = ({ children }) => (

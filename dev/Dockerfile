@@ -1,4 +1,4 @@
-FROM node:8.2-alpine
+FROM node:8.7-alpine
 
 WORKDIR /srv
 COPY . .
@@ -6,6 +6,7 @@ COPY . .
 RUN npm i -g nodemon
 RUN apk add --no-cache curl
 
-EXPOSE 8888 8080
+EXPOSE 8080 8080
+EXPOSE 8888 8888
 
 CMD npm i && npm run server-watch
