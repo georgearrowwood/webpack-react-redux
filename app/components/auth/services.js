@@ -1,5 +1,8 @@
-import services from '../../modules/services';
+import servicesInstance from '../../modules/services';
 
-export default {
-  login: data => services.post('/api/login', data),
+export default () => {
+  const instance = servicesInstance();
+  return {
+    login: data => instance.post('/api/login', data),
+  };
 };

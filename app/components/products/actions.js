@@ -11,10 +11,10 @@ export const receiveProducts = data => ({
 
 export const fetchProducts = () => (dispatch, getState) => {
   const state = getState();
-
   if (state.isFetching) return false;
+
   dispatch(requestProducts());
-  return services.getList()
+  return services({ token: state.auth.token }).getList()
     .then(data => dispatch(receiveProducts(data.data.products)));
 };
 

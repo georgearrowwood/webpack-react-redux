@@ -33,7 +33,6 @@ export default {
   module: {
     loaders: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
-      // { test: /\.(scss|css)$/, loader: 'ignore-loader' },
     ],
   },
   plugins: [

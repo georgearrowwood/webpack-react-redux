@@ -1,14 +1,17 @@
 FROM node:8.7-alpine
 
 WORKDIR /srv
-RUN apk add --no-cache curl
-
-RUN chown -R node:node /srv
-USER node
 
 COPY . .
 RUN npm i
 RUN npm run all-build
+
+RUN npm run lint
+
+RUN rm -rf webpack __tests__ node_modules
+
+RUN chown -R node:node /srv
+USER node
 
 EXPOSE 8081 8081
 

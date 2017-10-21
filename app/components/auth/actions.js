@@ -3,8 +3,7 @@ import services from './services';
 
 export const loginAction = ({ login, password }, history) => async (dispatch) => {
   try {
-    const res = await services.login({ login, password });
-    /* eslint-env browser */
+    const res = await services().login({ login, password });
     cookie.save('user', res.data.user, { path: '/' });
     cookie.save('userToken', res.data.userToken, { path: '/' });
     dispatch({ type: 'AUTHENTICATED' });

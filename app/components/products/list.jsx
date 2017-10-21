@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import isClient from '../../modules/is-client';
 import ProductsListView from './list-view';
 import { fetchProducts, deleteProduct } from './actions';
 
@@ -12,7 +13,7 @@ class ProductsList extends Component {
   }
 
   componentWillMount() {
-    this.props.dispatch(fetchProducts());
+    if (isClient) this.props.dispatch(fetchProducts());
   }
 
   deleteHandler(id) {
@@ -39,6 +40,7 @@ ProductsList.defaultProps = {
 const mapStateToProps = state => ({
   products: state.products.items,
   isFetching: state.products.isFetching,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps)(ProductsList);

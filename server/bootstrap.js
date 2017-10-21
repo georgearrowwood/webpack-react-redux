@@ -31,7 +31,7 @@ server
   })
   // error handler
   .use((err, req, res) => {
-    logger.debug(err);
+    logger.info(err);
     res.send(500);
   });
 

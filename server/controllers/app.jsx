@@ -13,12 +13,12 @@ import loadPreState from '../modules/load-pre-state';
 const appController = {
   init: async (req, res) => {
     const { userToken } = req.cookies;
-    const user = req.cookies.user ? JSON.parse(req.cookies.user) : null;
-    const preState = await loadPreState(req.url, user, userToken);
+    const preState = await loadPreState(req.url, userToken);
     const store = createStore(reducers, preState, applyMiddleware(thunk));
     if (userToken) {
       store.dispatch({ type: 'AUTHENTICATED' });
     }
+
     const context = {};
     const app = (
       <Provider store={store}>
