@@ -8,15 +8,15 @@ import { reducer as formReducer } from 'redux-form';
 import ProductsAdd from './add';
 import * as productsActions from './actions';
 
-const store = createStore(combineReducers({ form: formReducer }), applyMiddleware(thunk));
-
 let wrapper;
 let Form;
 let input;
 
 beforeAll(() => {
-  wrapper = mount(
-    <Provider store={store}><ProductsAdd /></Provider>);
+  const store = createStore(combineReducers({ form: formReducer }), applyMiddleware(thunk));
+
+  wrapper = mount(<Provider store={store}><ProductsAdd /></Provider>);
+
   Form = wrapper.find('ProductAddForm');
   input = Form.find('input#product-title');
 });
@@ -29,7 +29,7 @@ describe('Product add form', () => {
     expect(typeof Form.find('button')).toEqual('object');
   });
 
-  it('Simulates text entry', () => {
+  it('Simulates text entry and submit and checks input', () => {
     jest.spyOn(productsActions, 'addProduct').mockImplementation(() => jest.fn());
     input.simulate('change', { target: { value: 'asd' } });
     Form.simulate('submit');

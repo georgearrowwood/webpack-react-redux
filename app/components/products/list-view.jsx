@@ -6,7 +6,7 @@ const deleteProduct = (e, id, handler) => {
   handler(id);
 };
 
-const ProductsList = ({ products, deleteHandler }) => (
+const ProductsListView = ({ products, deleteHandler }) => (
   <ul>
     { products.map(product => (
       <li key={product.id}>
@@ -20,13 +20,13 @@ const ProductsList = ({ products, deleteHandler }) => (
   </ul>
 );
 
-ProductsList.propTypes = {
+ProductsListView.propTypes = {
   deleteHandler: PropTypes.func.isRequired,
   products: PropTypes.arrayOf(PropTypes.object),
 };
 
-ProductsList.defaultProps = {
+ProductsListView.defaultProps = {
   products: [],
 };
 
-export default ProductsList;
+export default ProductsListView;

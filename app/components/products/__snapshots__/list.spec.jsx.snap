@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductsList Container Renders component and triggers action fetchList on did mount 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Connect(ProductsList)>
+    <ProductsList
+      auth={undefined}
+      dispatch={[Function]}
+      isFetching={undefined}
+      products={Array []}
+    >
+      <ProductsListView
+        deleteHandler={[Function]}
+        products={Array []}
+      >
+        <ul />
+      </ProductsListView>
+    </ProductsList>
+  </Connect(ProductsList)>
+</Provider>
+`;
+
+exports[`ProductsList Container set init state with products data 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <Connect(ProductsList)>
+    <ProductsList
+      auth={undefined}
+      dispatch={[Function]}
+      isFetching={true}
+      products={
+        Array [
+          Object {
+            "id": 1,
+            "title": "test product 1",
+          },
+          Object {
+            "id": 2,
+            "title": "test product 2",
+          },
+        ]
+      }
+    >
+      <ProductsListView
+        deleteHandler={[Function]}
+        products={
+          Array [
+            Object {
+              "id": 1,
+              "title": "test product 1",
+            },
+            Object {
+              "id": 2,
+              "title": "test product 2",
+            },
+          ]
+        }
+      >
+        <ul>
+          <li
+            key="1"
+          >
+            <span>
+              1
+               - 
+              test product 1
+               :
+            </span>
+            <a
+              href="delete/{product.id}"
+              onClick={[Function]}
+            >
+              X
+            </a>
+          </li>
+          <li
+            key="2"
+          >
+            <span>
+              2
+               - 
+              test product 2
+               :
+            </span>
+            <a
+              href="delete/{product.id}"
+              onClick={[Function]}
+            >
+              X
+            </a>
+          </li>
+        </ul>
+      </ProductsListView>
+    </ProductsList>
+  </Connect(ProductsList)>
+</Provider>
+`;

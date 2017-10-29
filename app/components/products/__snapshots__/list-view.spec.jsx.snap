@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ProductsList View Renders products component with properties 1`] = `
-<ProductsList
+<ProductsListView
   deleteHandler={[Function]}
   products={
     Array [
@@ -50,5 +50,5 @@ exports[`ProductsList View Renders products component with properties 1`] = `
       </a>
     </li>
   </ul>
-</ProductsList>
+</ProductsListView>
 `;

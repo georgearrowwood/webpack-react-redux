@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import isClient from '../../modules/is-client';
 import ProductsListView from './list-view';
 import { fetchProducts, deleteProduct } from './actions';
 
@@ -12,8 +11,8 @@ class ProductsList extends Component {
     this.deleteHandler = this.deleteHandler.bind(this);
   }
 
-  componentWillMount() {
-    if (isClient) this.props.dispatch(fetchProducts());
+  componentDidMount() {
+    this.props.dispatch(fetchProducts());
   }
 
   deleteHandler(id) {
