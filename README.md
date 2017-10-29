@@ -52,3 +52,12 @@ To build client for production run
 ```
 npm run client-build
 ```
+
+To build image:
+```
+docker build -t appname .
+```
+To run image:
+```
+docker run -p 8081:8081 appname
+```

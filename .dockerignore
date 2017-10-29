@@ -17,5 +17,10 @@ README.md
 # System files
 .DS_Store
 node_modules
-dev
+
+dev/.bash_history
+dev/.local.env
+dev/Dockerfile
+
 dist
+coverage
