@@ -7,6 +7,7 @@ RUN npm i
 RUN npm run all-build
 
 RUN npm run lint
+RUN npm test
 
 RUN rm -rf webpack __tests__ node_modules
 

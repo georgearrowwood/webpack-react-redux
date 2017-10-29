@@ -2,6 +2,7 @@ import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 import PropTypes from 'prop-types';
 
+
 import { addProduct } from './actions';
 
 const submit = (data, dispatch) => {
@@ -11,15 +12,18 @@ const submit = (data, dispatch) => {
 const ProductAddForm = ({ handleSubmit }) => (
   <form onSubmit={handleSubmit(submit)}>
     <div>
-      <label htmlFor="title">Product title</label>
-      <div>
-        <Field
-          name="title"
-          component="input"
-          type="text"
-          placeholder="Product Title"
-        />
-      </div>
+      <label htmlFor="product-title">
+        <span>Product title</span>
+        <div>
+          <Field
+            id="product-title"
+            name="title"
+            component="input"
+            type="text"
+            placeholder="Product Title"
+          />
+        </div>
+      </label>
     </div>
     <div>
       <button type="submit">Submit</button>

@@ -17,9 +17,9 @@ import RequireNotAuth from './components/auth/require-not-auth';
 export default () => (
   <Layout name="main">
     <Switch>
-      <Route exact path="/login" component={RequireNotAuth(Login)} />
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
+      <Route exact path="/login" component={RequireNotAuth(Login)} />
       <Route exact path="/products" component={RequireAuth(Products)} />
       <Route exact path="/logout" component={RequireAuth(Logout)} />
 

@@ -10,7 +10,7 @@ const ProductsList = ({ products, deleteHandler }) => (
   <ul>
     { products.map(product => (
       <li key={product.id}>
-        {product.id} - {product.title} :
+        <span>{product.id} - {product.title} :</span>
         <a
           href="delete/{product.id}"
           onClick={e => deleteProduct(e, product.id, deleteHandler)}

@@ -43,5 +43,4 @@ yarn-error.log
 # Temp folder
 dist
 
-package-lock.json
 dev/.bash_history

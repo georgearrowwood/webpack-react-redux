@@ -14,19 +14,19 @@ export const fetchProducts = () => (dispatch, getState) => {
   if (state.isFetching) return false;
 
   dispatch(requestProducts());
-  return services({ token: state.auth.token }).getList()
+  return services().getList()
     .then(data => dispatch(receiveProducts(data.data.products)));
 };
 
 export const addProduct = data => (dispatch) => {
-  services.addOne(data.title)
+  services().addOne(data.title)
     .then(() => {
       dispatch(fetchProducts());
     });
 };
 
 export const deleteProduct = id => dispatch =>
-  services.deleteOne(id)
+  services().deleteOne(id)
     .then(() => {
       dispatch(fetchProducts());
     });

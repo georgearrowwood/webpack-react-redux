@@ -1,0 +1,431 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product add form Renders products add form elements 1`] = `
+<Provider
+  store={
+    Object {
+      "dispatch": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+      Symbol(observable): [Function],
+    }
+  }
+>
+  <ReduxForm>
+    <Connect(Form(ProductAddForm))
+      destroyOnUnmount={true}
+      enableReinitialize={false}
+      forceUnregisterOnUnmount={false}
+      form="productAdd"
+      getFormState={[Function]}
+      initialValues={undefined}
+      keepDirtyOnReinitialize={false}
+      persistentSubmitErrors={false}
+      pure={true}
+      shouldAsyncValidate={[Function]}
+      shouldError={[Function]}
+      shouldValidate={[Function]}
+      shouldWarn={[Function]}
+      touchOnBlur={true}
+      touchOnChange={false}
+    >
+      <Form(ProductAddForm)
+        anyTouched={false}
+        array={
+          Object {
+            "insert": [Function],
+            "move": [Function],
+            "pop": [Function],
+            "push": [Function],
+            "remove": [Function],
+            "removeAll": [Function],
+            "shift": [Function],
+            "splice": [Function],
+            "swap": [Function],
+            "unshift": [Function],
+          }
+        }
+        arrayInsert={[Function]}
+        arrayMove={[Function]}
+        arrayPop={[Function]}
+        arrayPush={[Function]}
+        arrayRemove={[Function]}
+        arrayRemoveAll={[Function]}
+        arrayShift={[Function]}
+        arraySplice={[Function]}
+        arraySwap={[Function]}
+        arrayUnshift={[Function]}
+        asyncErrors={undefined}
+        asyncValidating={false}
+        autofill={[Function]}
+        blur={[Function]}
+        change={[Function]}
+        clearAsyncError={[Function]}
+        clearSubmit={[Function]}
+        clearSubmitErrors={[Function]}
+        destroy={[Function]}
+        destroyOnUnmount={true}
+        dirty={false}
+        dispatch={[Function]}
+        enableReinitialize={false}
+        error={undefined}
+        focus={[Function]}
+        forceUnregisterOnUnmount={false}
+        form="productAdd"
+        getFormState={[Function]}
+        initialValues={undefined}
+        initialize={[Function]}
+        initialized={false}
+        invalid={false}
+        keepDirtyOnReinitialize={false}
+        persistentSubmitErrors={false}
+        pristine={true}
+        pure={true}
+        registerField={[Function]}
+        registeredFields={
+          Object {
+            "title": Object {
+              "count": 1,
+              "name": "title",
+              "type": "Field",
+            },
+          }
+        }
+        reset={[Function]}
+        setSubmitFailed={[Function]}
+        setSubmitSucceeded={[Function]}
+        shouldAsyncValidate={[Function]}
+        shouldError={[Function]}
+        shouldValidate={[Function]}
+        shouldWarn={[Function]}
+        startAsyncValidation={[Function]}
+        startSubmit={[Function]}
+        stopAsyncValidation={[Function]}
+        stopSubmit={[Function]}
+        submit={[Function]}
+        submitFailed={false}
+        submitSucceeded={false}
+        submitting={false}
+        syncErrors={Object {}}
+        syncWarnings={Object {}}
+        touch={[Function]}
+        touchOnBlur={true}
+        touchOnChange={false}
+        triggerSubmit={undefined}
+        unregisterField={[Function]}
+        untouch={[Function]}
+        updateSyncErrors={[Function]}
+        updateSyncWarnings={[Function]}
+        valid={true}
+        validExceptSubmit={true}
+        values={Object {}}
+        warning={undefined}
+      >
+        <ProductAddForm
+          anyTouched={false}
+          array={
+            Object {
+              "insert": [Function],
+              "move": [Function],
+              "pop": [Function],
+              "push": [Function],
+              "remove": [Function],
+              "removeAll": [Function],
+              "shift": [Function],
+              "splice": [Function],
+              "swap": [Function],
+              "unshift": [Function],
+            }
+          }
+          asyncValidate={[Function]}
+          asyncValidating={false}
+          autofill={[Function]}
+          blur={[Function]}
+          change={[Function]}
+          clearAsyncError={[Function]}
+          clearSubmit={[Function]}
+          clearSubmitErrors={[Function]}
+          destroy={[Function]}
+          dirty={false}
+          dispatch={[Function]}
+          error={undefined}
+          form="productAdd"
+          handleSubmit={[Function]}
+          initialValues={undefined}
+          initialize={[Function]}
+          initialized={false}
+          invalid={false}
+          pristine={true}
+          pure={true}
+          reset={[Function]}
+          submit={[Function]}
+          submitFailed={false}
+          submitSucceeded={false}
+          submitting={false}
+          touch={[Function]}
+          triggerSubmit={undefined}
+          untouch={[Function]}
+          valid={true}
+          warning={undefined}
+        >
+          <form
+            onSubmit={[Function]}
+          >
+            <div>
+              <label
+                htmlFor="product-title"
+              >
+                <span>
+                  Product title
+                </span>
+                <div>
+                  <Field
+                    component="input"
+                    id="product-title"
+                    name="title"
+                    placeholder="Product Title"
+                    type="text"
+                  >
+                    <Connect(ConnectedField)
+                      _reduxForm={
+                        Object {
+                          "anyTouched": false,
+                          "array": Object {
+                            "insert": [Function],
+                            "move": [Function],
+                            "pop": [Function],
+                            "push": [Function],
+                            "remove": [Function],
+                            "removeAll": [Function],
+                            "shift": [Function],
+                            "splice": [Function],
+                            "swap": [Function],
+                            "unshift": [Function],
+                          },
+                          "arrayInsert": [Function],
+                          "arrayMove": [Function],
+                          "arrayPop": [Function],
+                          "arrayPush": [Function],
+                          "arrayRemove": [Function],
+                          "arrayRemoveAll": [Function],
+                          "arrayShift": [Function],
+                          "arraySplice": [Function],
+                          "arraySwap": [Function],
+                          "arrayUnshift": [Function],
+                          "asyncErrors": undefined,
+                          "asyncValidate": [Function],
+                          "asyncValidating": false,
+                          "autofill": [Function],
+                          "blur": [Function],
+                          "change": [Function],
+                          "clearAsyncError": [Function],
+                          "clearSubmit": [Function],
+                          "clearSubmitErrors": [Function],
+                          "destroy": [Function],
+                          "destroyOnUnmount": true,
+                          "dirty": false,
+                          "dispatch": [Function],
+                          "enableReinitialize": false,
+                          "error": undefined,
+                          "focus": [Function],
+                          "forceUnregisterOnUnmount": false,
+                          "form": "productAdd",
+                          "getFormState": [Function],
+                          "getValues": [Function],
+                          "initialValues": undefined,
+                          "initialize": [Function],
+                          "initialized": false,
+                          "invalid": false,
+                          "keepDirtyOnReinitialize": false,
+                          "persistentSubmitErrors": false,
+                          "pristine": true,
+                          "pure": true,
+                          "register": [Function],
+                          "registerField": [Function],
+                          "registerInnerOnSubmit": [Function],
+                          "registeredFields": undefined,
+                          "reset": [Function],
+                          "sectionPrefix": undefined,
+                          "setSubmitFailed": [Function],
+                          "setSubmitSucceeded": [Function],
+                          "shouldAsyncValidate": [Function],
+                          "shouldError": [Function],
+                          "shouldValidate": [Function],
+                          "shouldWarn": [Function],
+                          "startAsyncValidation": [Function],
+                          "startSubmit": [Function],
+                          "stopAsyncValidation": [Function],
+                          "stopSubmit": [Function],
+                          "submit": [Function],
+                          "submitFailed": false,
+                          "submitSucceeded": false,
+                          "submitting": false,
+                          "syncErrors": Object {},
+                          "syncWarnings": Object {},
+                          "touch": [Function],
+                          "touchOnBlur": true,
+                          "touchOnChange": false,
+                          "triggerSubmit": undefined,
+                          "unregister": [Function],
+                          "unregisterField": [Function],
+                          "untouch": [Function],
+                          "updateSyncErrors": [Function],
+                          "updateSyncWarnings": [Function],
+                          "valid": true,
+                          "validExceptSubmit": true,
+                          "values": Object {},
+                          "warning": undefined,
+                        }
+                      }
+                      component="input"
+                      id="product-title"
+                      name="title"
+                      normalize={[Function]}
+                      placeholder="Product Title"
+                      type="text"
+                    >
+                      <ConnectedField
+                        _reduxForm={
+                          Object {
+                            "anyTouched": false,
+                            "array": Object {
+                              "insert": [Function],
+                              "move": [Function],
+                              "pop": [Function],
+                              "push": [Function],
+                              "remove": [Function],
+                              "removeAll": [Function],
+                              "shift": [Function],
+                              "splice": [Function],
+                              "swap": [Function],
+                              "unshift": [Function],
+                            },
+                            "arrayInsert": [Function],
+                            "arrayMove": [Function],
+                            "arrayPop": [Function],
+                            "arrayPush": [Function],
+                            "arrayRemove": [Function],
+                            "arrayRemoveAll": [Function],
+                            "arrayShift": [Function],
+                            "arraySplice": [Function],
+                            "arraySwap": [Function],
+                            "arrayUnshift": [Function],
+                            "asyncErrors": undefined,
+                            "asyncValidate": [Function],
+                            "asyncValidating": false,
+                            "autofill": [Function],
+                            "blur": [Function],
+                            "change": [Function],
+                            "clearAsyncError": [Function],
+                            "clearSubmit": [Function],
+                            "clearSubmitErrors": [Function],
+                            "destroy": [Function],
+                            "destroyOnUnmount": true,
+                            "dirty": false,
+                            "dispatch": [Function],
+                            "enableReinitialize": false,
+                            "error": undefined,
+                            "focus": [Function],
+                            "forceUnregisterOnUnmount": false,
+                            "form": "productAdd",
+                            "getFormState": [Function],
+                            "getValues": [Function],
+                            "initialValues": undefined,
+                            "initialize": [Function],
+                            "initialized": false,
+                            "invalid": false,
+                            "keepDirtyOnReinitialize": false,
+                            "persistentSubmitErrors": false,
+                            "pristine": true,
+                            "pure": true,
+                            "register": [Function],
+                            "registerField": [Function],
+                            "registerInnerOnSubmit": [Function],
+                            "registeredFields": undefined,
+                            "reset": [Function],
+                            "sectionPrefix": undefined,
+                            "setSubmitFailed": [Function],
+                            "setSubmitSucceeded": [Function],
+                            "shouldAsyncValidate": [Function],
+                            "shouldError": [Function],
+                            "shouldValidate": [Function],
+                            "shouldWarn": [Function],
+                            "startAsyncValidation": [Function],
+                            "startSubmit": [Function],
+                            "stopAsyncValidation": [Function],
+                            "stopSubmit": [Function],
+                            "submit": [Function],
+                            "submitFailed": false,
+                            "submitSucceeded": false,
+                            "submitting": false,
+                            "syncErrors": Object {},
+                            "syncWarnings": Object {},
+                            "touch": [Function],
+                            "touchOnBlur": true,
+                            "touchOnChange": false,
+                            "triggerSubmit": undefined,
+                            "unregister": [Function],
+                            "unregisterField": [Function],
+                            "untouch": [Function],
+                            "updateSyncErrors": [Function],
+                            "updateSyncWarnings": [Function],
+                            "valid": true,
+                            "validExceptSubmit": true,
+                            "values": Object {},
+                            "warning": undefined,
+                          }
+                        }
+                        _value={undefined}
+                        asyncError={undefined}
+                        asyncValidating={false}
+                        component="input"
+                        dirty={false}
+                        dispatch={[Function]}
+                        id="product-title"
+                        initial={undefined}
+                        name="title"
+                        normalize={[Function]}
+                        placeholder="Product Title"
+                        pristine={true}
+                        state={undefined}
+                        submitError={undefined}
+                        submitFailed={undefined}
+                        submitting={undefined}
+                        syncError={undefined}
+                        syncWarning={undefined}
+                        type="text"
+                        value={undefined}
+                      >
+                        <input
+                          id="product-title"
+                          name="title"
+                          onBlur={[Function]}
+                          onChange={[Function]}
+                          onDragStart={[Function]}
+                          onDrop={[Function]}
+                          onFocus={[Function]}
+                          placeholder="Product Title"
+                          type="text"
+                          value=""
+                        />
+                      </ConnectedField>
+                    </Connect(ConnectedField)>
+                  </Field>
+                </div>
+              </label>
+            </div>
+            <div>
+              <button
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </ProductAddForm>
+      </Form(ProductAddForm)>
+    </Connect(Form(ProductAddForm))>
+  </ReduxForm>
+</Provider>
+`;
