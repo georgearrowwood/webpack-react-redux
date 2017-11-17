@@ -10,7 +10,9 @@ RUN npm test
 
 RUN npm run all-build
 
-RUN rm -rf webpack __tests__ node_modules dev
+RUN npm prune --production
+
+RUN rm -rf webpack __tests__ dev .babelrc
 
 RUN chown -R node:node /srv
 USER node

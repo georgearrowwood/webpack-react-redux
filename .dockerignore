@@ -18,6 +18,8 @@ README.md
 .DS_Store
 node_modules
 
+.env
+
 dev/.bash_history
 dev/.local.env
 dev/Dockerfile

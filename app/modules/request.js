@@ -2,11 +2,12 @@ import axios from 'axios';
 
 export default (options) => {
   if (!options) throw new Error('no parameters given for request instance creation');
-  if (!options.baseURL) throw new Error('no base url given for request instance creation');
   const params = {
-    baseURL: options.baseURL,
     headers: {},
   };
+  if (options.baseURL) {
+    params.baseURL = options.baseURL;
+  }
   if (options.headers) {
     params.headers = { ...options.headers };
   }
