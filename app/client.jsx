@@ -2,7 +2,8 @@ import React from 'react';
 import { hydrate } from 'react-dom';
 
 import { Provider } from 'react-redux';
-import { ConnectedRouter } from 'react-router-redux';
+// import { ConnectedRouter } from 'react-router-redux';
+import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import cookie from 'react-cookies';
 
@@ -37,4 +38,3 @@ if (module.hot) {
     );
   });
 }
-

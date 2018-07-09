@@ -9,7 +9,7 @@ const server = http.createServer(app);
 let currentApp = app;
 
 server.listen(port, () => {
-  logger.log(`Server is listening at ${port}`);
+  logger.log({ level: 'info', message: `Server is listening at ${port}` });
 });
 
 if (module.hot) {

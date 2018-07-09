@@ -7,10 +7,11 @@ module.exports = {
 
   context: path.resolve(__dirname, '../server'),
   entry: [
-    'webpack/hot/poll?1000',
+    'webpack/hot/poll?1500',
     'babel-regenerator-runtime',
     './index',
   ],
+  mode: 'development',
   output: {
     path: path.join(__dirname, '../dist'),
     filename: 'server.bundle.js',
@@ -24,14 +25,14 @@ module.exports = {
   externals: [
     nodeExternals({
       whitelist: [
-        'webpack/hot/poll?1000',
+        'webpack/hot/poll?1500',
         'bootstrap/dist/css/bootstrap.css',
       ],
     }),
   ],
 
   module: {
-    loaders: [
+    rules: [
       { test: /\.(js|jsx)$/, exclude: /node_modules/, loader: 'babel-loader' },
       { test: /\.(css|scss)$/, loader: 'null-loader' },
       {
@@ -45,9 +46,7 @@ module.exports = {
   },
   plugins: [
     new StartServerPlugin('server.bundle.js'),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('development'),
@@ -60,4 +59,8 @@ module.exports = {
       },
     }),
   ],
+  optimization: {
+    namedModules: true,
+    noEmitOnErrors: true,
+  },
 };

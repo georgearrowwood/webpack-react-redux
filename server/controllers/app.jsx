@@ -8,12 +8,14 @@ import thunk from 'redux-thunk';
 import config from '../modules/config';
 import Routes from '../../app/routes';
 import reducers from '../../app/reducers';
-import loadPreState from '../modules/load-pre-state';
+// import loadPreState from '../modules/load-pre-state';
 
 const appController = {
   init: async (req, res) => {
     const { userToken } = req.cookies;
-    const preState = await loadPreState(req.url, userToken);
+    // const preState = await loadPreState(req.url, userToken);
+    // console.log('pres', preState, req.originalUrl);
+    const preState = {};
     const store = createStore(reducers, preState, applyMiddleware(thunk));
     if (userToken) {
       store.dispatch({ type: 'AUTHENTICATED' });

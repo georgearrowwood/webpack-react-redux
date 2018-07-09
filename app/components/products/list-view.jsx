@@ -14,7 +14,9 @@ const ProductsListView = ({ products, deleteHandler }) => (
         <a
           href="delete/{product.id}"
           onClick={e => deleteProduct(e, product.id, deleteHandler)}
-        >X</a>
+        >
+          X
+        </a>
       </li>
     ))}
   </ul>

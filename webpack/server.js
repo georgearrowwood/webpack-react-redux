@@ -48,6 +48,7 @@ module.exports = {
         ENV: JSON.stringify('server'),
         BABEL_ENV: JSON.stringify('node'),
         API_URL: JSON.stringify('http://localhost:8081'),
+        STYLE_URL: JSON.stringify('/assets/style.css'),
       },
     }),
   ],

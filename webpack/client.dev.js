@@ -12,6 +12,7 @@ module.exports = {
     host,
     headers: { 'Access-Control-Allow-Origin': '*' },
   },
+  mode: 'development',
   target: 'web',
   context: path.resolve(__dirname, '../app'),
   entry: [
@@ -29,9 +30,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
   },
-  watchOptions: { poll: true },
+  watchOptions: { poll: 1000, ignored: /node_modules/ },
   module: {
-    loaders: [
+    rules: [
       { test: /\.(js|jsx)$/, loaders: ['babel-loader'], exclude: /node_modules/ },
       {
         test: /\.css$/,
@@ -66,7 +67,9 @@ module.exports = {
         API_URL: JSON.stringify('http://localhost:8080'),
       },
     }),
-    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
   ],
+  optimization: {
+    namedModules: true,
+  },
 };

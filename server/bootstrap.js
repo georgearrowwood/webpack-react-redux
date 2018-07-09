@@ -10,7 +10,7 @@ import productRoutes from './routes/products';
 import authRoutes from './routes/auth';
 
 const server = Express();
-
+console.log(path.join(process.cwd(), '/dist/favicon.ico'));
 server
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({
@@ -22,7 +22,8 @@ server
   .use(cookieParser())
   .set('view engine', '.hbs')
   .set('views', 'server/views/')
-  .use('/assets', Express.static(path.join(process.cwd(), '/dist')))
+  .use('/favicon.ico', Express.static(path.join(process.cwd(), '/dist/favicon.ico'), { fallthrough: false }))
+  .use('/assets', Express.static(path.join(process.cwd(), '/dist'), { fallthrough: false }))
   .use('/', productRoutes)
   .use('/', authRoutes)
   .use('/', appRoutes)

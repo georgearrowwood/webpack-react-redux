@@ -2,6 +2,6 @@ import React from 'react';
 
 export default () => (
   <div>
-    About Pagea
+    About Page
   </div>
 );
